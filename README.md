@@ -1,7 +1,9 @@
-ACI multi-site network for streched epg use case.
+#ACI multi-site network for streched epg use case.
 
 ![image](tf.png)
 ![image](aci-aws.png)
+
+Initialize Terraform:
 
 terraform init
 
@@ -21,4 +23,4 @@ You will see a list of all the resources which are to be created, modified or de
 
 Please enter yes.
 
-nmarques
+#nmarques
