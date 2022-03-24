@@ -64,6 +64,7 @@ resource "mso_schema_template_bd" "bd_local" {
   display_name           = var.bd_display_name
   vrf_name               = mso_schema_template_vrf.template_vrf_prod_1.name
   layer2_unknown_unicast = "proxy"
+  unicast_routing = "true"
 }
 
 resource "mso_schema_site_bd" "on_prem_site_bd_local" {
@@ -96,7 +97,7 @@ resource "mso_schema_template_anp_epg" "hybrid_epg" {
   bd_name                    = mso_schema_template_bd.bd_local.name
   vrf_name                   = mso_schema_template_vrf.template_vrf_prod_1.name
   display_name               = var.epg_streched
-  useg_epg                   = true
+  useg_epg                   = false
   intra_epg                  = "unenforced"
   intersite_multicast_source = false
   preferred_group            = false

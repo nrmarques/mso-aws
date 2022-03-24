@@ -41,9 +41,9 @@ resource "mso_schema_site" "schema_aws_site" {
 }
 
 resource "mso_schema_template_deploy" "deploy" {
+  depends_on = [mso_schema_template_anp_epg_selector.check]
   schema_id = mso_schema.on_prem_and_aws.id 
   template_name = mso_schema.on_prem_and_aws.template_name
-  #depends_on = [mso_schema_site.AWS]
 }
 
 
@@ -51,6 +51,7 @@ resource "mso_schema_template_deploy" "deploy" {
 
 
 resource "mso_schema_template_deploy" "template_deployer" {
+  depends_on = [mso_schema_template_anp_epg_selector.check]
   schema_id = mso_schema.on_prem_and_aws.id 
   template_name = mso_schema.on_prem_and_aws.template_name
   site_id = data.mso_site.on_prem_site.id 
@@ -58,6 +59,7 @@ resource "mso_schema_template_deploy" "template_deployer" {
 }
 
 resource "mso_schema_template_deploy" "template_deployer_aww" {
+  depends_on = [mso_schema_template_anp_epg_selector.check]
   schema_id = mso_schema.on_prem_and_aws.id 
   template_name = mso_schema.on_prem_and_aws.template_name
   site_id = data.mso_site.aws_site.id 
