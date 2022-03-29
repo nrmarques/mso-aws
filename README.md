@@ -1,6 +1,6 @@
 #ACI multi-site network for streched epg use case.
 
-![image](tf.png)
+![image](aws_capic.png)
 ![image](aci-aws.png)
 
 Initialize Terraform:
